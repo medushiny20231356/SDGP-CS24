@@ -1,2 +1,2 @@
-# SDGP-G2
+# SDGP-G24
 Brand new idea
