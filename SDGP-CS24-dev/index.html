@@ -27,6 +27,10 @@
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
+  <!--<script src="https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.158.0/examples/js/loaders/GLTFLoader.js"></script>-->
+
+
   <!-- =======================================================
   * Template Name: Gp
   * Template URL: https://bootstrapmade.com/gp-free-multipurpose-html-bootstrap-template/
@@ -89,6 +93,18 @@
 
       <img src="Home page wallpaper.jpg" alt="" data-aos="fade-in">
 
+      <!--Floating 3D Stone-->
+      <!--<div id="home-wallpaper" 
+           style="position: relative; width: 100%; height: 100vh; overflow: hidden; background: url('Home page wallpaper.jpg') center/cover no-repeat;">
+        
+         <canvas id="floatingStone" style="position:absolute; top:20%; left:50%; width:200px; height: 200px; pointer-events:none;"></canvas>
+      </div> -->
+      
+      
+      <!--<div class="hero">
+        <h1 class="hero-text">ARchitech</h1>
+      </div> -->
+
       <div class="container">
 
         <div class="row justify-content-center text-center" data-aos="fade-up" data-aos-delay="100">
@@ -96,7 +112,7 @@
             <h2>ARchitech<span>.</span></h2>
             <p>Plan with precision. Design with vision.</p>
           </div>
-        </div>
+        </div> 
 
         <!-- <div class="row gy-4 mt-5 justify-content-center" data-aos="fade-up" data-aos-delay="200">
           <div class="col-xl-2 col-md-4" data-aos="fade-up" data-aos-delay="300">
@@ -142,22 +158,22 @@
 
         <div class="row gy-4">
           <div class="col-lg-6 order-1 order-lg-2">
-            <img src="assets/img/about.jpg" class="img-fluid" alt="">
+            <video class="about-video" autoplay muted loop playsinline>
+              <source src="explanation video.mp4" type="video/mp4">
+            </video>
           </div>
           <div class="col-lg-6 order-2 order-lg-1 content">
-            <h3>Voluptatem dignissimos provident</h3>
+            <h3>Transform your space with AR.</h3>
             <p class="fst-italic">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua.
+              Our app scans your room and creates a realistic 3D model so you can try out furniture, decor, and layouts before buying. Design your dream room with just your phone.
             </p>
             <ul>
-              <li><i class="bi bi-check2-all"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat.</span></li>
-              <li><i class="bi bi-check2-all"></i> <span>Duis aute irure dolor in reprehenderit in voluptate velit.</span></li>
-              <li><i class="bi bi-check2-all"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</span></li>
+              <li><i class="bi bi-check2-all"></i> <span>Open the app and walk around your space while the app captures walls, floors, and furniture to create a precise 3D model of your room..</span></li>
+              <li><i class="bi bi-check2-all"></i> <span>Simply point your camera at any furniture item you want.The app scans it and instatntly converts it into a high-quality 3D model you can use inside your virtual room.</span></li>
+              <li><i class="bi bi-check2-all"></i> <span>Add the scanned furniture into your 3D room, adjust its position, comapare different layouts, and save your favourite design options.</span></li>
             </ul>
             <p>
-              Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident
+              Once you've arranged your furniture and finalized your design, you can view your room from any angle in full 3D, experiment with different layouts, and even share your design with experts and friends.This helps you make confident decisions before purchasing, saving time and ensuring your room looks exactly how you imagined.
             </p>
           </div>
         </div>
@@ -858,7 +874,38 @@
       </div>
 
     </section><!-- /Contact Section -->
+    
+    <script>
+      const canvas = document.getElementById('floatingStone');
 
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 1000);
+      camera.position.z = 3;
+      
+      const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
+      renderer.setSize(200,200);
+      renderer.setPixelRatio(window.devicePixelRatio);
+
+      const light = new THREE.HemisphereLight(0xffffff, 0x444444, 1);
+      scene.add(light);
+
+      const loader = new THREE.GLTFLoader();
+      loader.load('stone.gltf', function(gltf) {
+        const stone = gltf.scene;
+        stone.scale.set(0.8, 0.8, 0.8);
+        scene.add(stone);
+        
+        function animate() {
+          requestAnimationFrame(animate);
+          scene.rotation.y += 0.01; //rotation
+          stone.rotation.y = Math.sin(Date.now() * 0.002) * 0.1; //floating effect
+          renderer.render(scene, camera);
+      }
+
+      animate();
+      });
+
+    </script>
   </main>
 
   <footer id="footer" class="footer dark-background">
