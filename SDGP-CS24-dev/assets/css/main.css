@@ -22,7 +22,7 @@
   --background-color: #F5F0E6; /* Background color for the entire website, including individual sections */
   --default-color: #444444; /* Default color used for the majority of the text content across the entire website */
   --heading-color: #151515; /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #ffc451; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+  --accent-color: #625e56; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
   --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
   --contrast-color: #312f2f; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
 }
@@ -892,6 +892,10 @@ section,
   color: var(--accent-color);
 }
 
+.hero-text {
+  margin-top: -250px;
+}
+
 .hero p {
   margin: 10px 0 0 0;
   font-size: 24px;
@@ -1030,44 +1034,139 @@ section,
 /*--------------------------------------------------------------
 # Features Section
 --------------------------------------------------------------*/
-.features .features-image {
-  position: relative;
-  min-height: 400px;
+.features {
+  display: flex;
+  flex-wrap: wrap; /* 2 images per row */
+  margin: 0;
+  padding: 0;
+  gap: 20px;
+  margin-bottom: 80px;
 }
 
-.features .features-image img {
-  position: absolute;
-  inset: 0;
-  display: block;
+.feature {
+  position: relative;
+  gap: 10px;
+  width: calc(50% - 10px); /* 2 per row */
+  height: calc(100vh - 80px); /* full viewport minus navbar height */
+  cursor: pointer;
+  overflow: hidden;
+  margin-top: 50px;
+}
+
+.feature img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  z-index: 1;
+  object-fit: cover; /* fills container nicely */
+  display: block;
+  transition: transform 0.5s ease;
 }
 
-.features .features-item h4 {
-  font-size: 20px;
-  font-weight: 700;
-  margin: 0 0 5px 0;
+.feature:hover img {
+  transform: scale(1.1); /* zoom on hover */
 }
 
-.features .features-item i {
-  font-size: 48px;
-  color: var(--accent-color);
-  margin-right: 20px;
-  line-height: 0;
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0); /* invisible by default */
+  transition: background 0.5s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.features .features-item p {
-  font-size: 15px;
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
-  margin: 0;
+.feature:hover .overlay {
+  background: rgba(0,0,0,0.5); /* fade effect */
+}
+
+.feature-name {
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  text-align: center;
+}
+
+.feature:hover .feature-name {
+  opacity: 1;
 }
 
 /*--------------------------------------------------------------
 # Services Section
 --------------------------------------------------------------*/
-.services .service-item {
+.team .team-member {
+  background-color: var(--surface-color);
+  overflow: hidden;
+  border-radius: 5px;
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+  height: 100%;
+}
+
+.team .team-member .member-img {
+  position: relative;
+  overflow: hidden;
+}
+
+.team .team-member .social {
+  position: absolute;
+  left: 0;
+  bottom: 30px;
+  right: 0;
+  opacity: 0;
+  transition: ease-in-out 0.3s;
+  text-align: center;
+}
+
+.team .team-member .social a {
+  background: color-mix(in srgb, var(--contrast-color), transparent 25%);
+  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  margin: 0 3px;
+  border-radius: 4px;
+  width: 36px;
+  height: 36px;
+  transition: ease-in-out 0.3s;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.team .team-member .social a:hover {
+  color: var(--contrast-color);
+  background: var(--accent-color);
+}
+
+.team .team-member .social i {
+  font-size: 18px;
+  line-height: 0;
+}
+
+.team .team-member .member-info {
+  padding: 25px 15px;
+}
+
+.team .team-member .member-info h4 {
+  font-weight: 700;
+  margin-bottom: 5px;
+  font-size: 18px;
+}
+
+.team .team-member .member-info span {
+  display: block;
+  font-size: 13px;
+  font-weight: 400;
+  color: color-mix(in srgb, var(--default-color), transparent 40%);
+}
+
+.team .team-member:hover .social {
+  opacity: 1;
+  bottom: 15px;
+}
+
+/*.services .service-item {
   background-color: var(--surface-color);
   text-align: center;
   border: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
@@ -1111,13 +1210,13 @@ section,
 .services .service-item:hover {
   box-shadow: 0px 0 25px 0 rgba(0, 0, 0, 0.1);
   transform: translateY(-10px);
-}
+}*/
 
 /*--------------------------------------------------------------
 # Call To Action Section
 --------------------------------------------------------------*/
 .call-to-action {
-  padding: 80px 0;
+  padding: 100px 20px;
   position: relative;
   clip-path: inset(0);
 }
