@@ -8,6 +8,18 @@
   <meta name="description" content="">
   <meta name="keywords" content="">
 
+  <!-- Three.js core -->
+  <!--<script src="https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.min.js"></script>
+
+  <!-- OrbitControls (optional, for camera control) -->
+  <!--<script src="https://cdn.jsdelivr.net/npm/three@0.158.0/examples/js/controls/OrbitControls.js"></script>
+
+  <!-- Three.js CSG -->
+  <!--<script type="module">
+    import { Brush, Evaluator, SUBTRACTION } from 'https://cdn.jsdelivr.net/npm/three-bvh-csg@0.8.0/dist/three-bvh-csg.module.js';
+  </script>
+
+
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
@@ -76,6 +88,26 @@
 
       <img src="Home page wallpaper.jpg" alt="" data-aos="fade-in">
 
+      <!-- Layered parallax glow -->
+      <div class="hero-parallax" aria-hidden="true">
+        <span class="parallax-layer layer-one" data-depth="0.05"></span>
+        <span class="parallax-layer layer-two" data-depth="0.12"></span>
+        <span class="parallax-layer layer-three" data-depth="0.18"></span>
+        <span class="parallax-layer layer-four" data-depth="0.25"></span>
+      </div>
+
+      <!-- Holographic floor grid -->
+      <div class="hero-holo-grid" aria-hidden="true">
+        <span class="grid-plane"></span>
+        <span class="grid-plane grid-plane--blur"></span>
+      </div>
+
+      <div class="hero-light-beams" aria-hidden="true">
+        <span class="beam beam-one"></span>
+        <span class="beam beam-two"></span>
+        <span class="beam beam-three"></span>
+      </div>
+
       <!--Floating 3D Stone-->
       <!--<div id="home-wallpaper" 
            style="position: relative; width: 100%; height: 100vh; overflow: hidden; background: url('Home page wallpaper.jpg') center/cover no-repeat;">
@@ -90,12 +122,42 @@
 
       <div class="container">
 
-        <div class="row justify-content-center text-center hero-text" data-aos="fade-up" data-aos-delay="100">
-          <div class="col-xl-6 col-lg-8">
-            <h1><strong>ARchitech.</strong></h1>
-            <p><strong>Plan with precision. Design with vision.</strong></p>
+        <div class="row justify-content-center text-center hero-text">
+          <div class="col-xl-9 col-lg-10">
+            <div class="hero-content" data-aos="zoom-out-up" data-aos-delay="120">
+              <p class="hero-kicker">Immersive AR interior design</p>
+              <h1 class="hero-title">
+                AR<span class="hero-title-glow">chitech</span>
+              </h1>
+              <p class="hero-subtitle">Plan with precision. Design with vision.</p>
+
+              <div class="hero-cta d-flex flex-wrap justify-content-center gap-3 mt-4">
+                <a class="btn hero-btn-primary" href="#features">
+                  Explore 3D features
+                </a>
+                <a class="btn hero-btn-ghost" href="#about">
+                  Watch how it works
+                </a>
+              </div>
+            </div>
           </div>
-        </div> 
+        </div>
+
+        <div class="hero-chip-row d-flex flex-wrap justify-content-center gap-4 mt-5" data-aos="fade-up" data-aos-delay="250">
+          <div class="hero-chip">
+            <span class="chip-label">Live Scan</span>
+            <span class="chip-value">Room-to-3D in seconds</span>
+          </div>
+          <div class="hero-chip">
+            <span class="chip-label">Furniture Cloud</span>
+            <span class="chip-value">2000+ photoreal assets</span>
+          </div>
+          <div class="hero-chip">
+            <span class="chip-label">Precision AR</span>
+            <span class="chip-value">1 cm alignment</span>
+          </div>
+        </div>
+
 
         <!-- <div class="row gy-4 mt-5 justify-content-center" data-aos="fade-up" data-aos-delay="200">
           <div class="col-xl-2 col-md-4" data-aos="fade-up" data-aos-delay="300">
@@ -132,7 +194,9 @@
 
       </div>
 
-    </section><!-- /Hero Section -->
+    </section>
+
+    <!-- /Hero Section -->
 
     <!-- About Section -->
     <section id="about" class="about section">
@@ -141,9 +205,11 @@
 
         <div class="row gy-4">
           <div class="col-lg-6 order-1 order-lg-2">
-            <video class="about-video" autoplay muted loop playsinline>
-              <source src="explanation video.mp4" type="video/mp4">
-            </video>
+            <div class="about-video-frame">
+              <video class="about-video" autoplay muted loop playsinline>
+                <source src="explanation video.mp4" type="video/mp4">
+              </video>
+            </div>
           </div>
           <div class="col-lg-6 order-2 order-lg-1 content">
             <h3>Transform your space with AR.</h3>
@@ -223,10 +289,8 @@
     </section><!-- /Clients Section -->
 
     <!-- FEATURES SECTION -->
-    <section id="feactures" class="features section">
-
-      <!-- Section Title -->
-      <!--<div class="container section-title" data-aos="fade-up">
+    <section id="features" class="features section">
+      <div class="container section-title" data-aos="fade-up">
         <h2>Features</h2>
         <p>Check our Features</p>
       </div><!-- End Section Title -->
@@ -234,7 +298,8 @@
       <div class="feature">
         <img src="assets/img/room-scan.jpg" alt="Room scanning">
         <div class="overlay">
-          <div class="feature-name">3D Room Scan</div>
+          <div class="feature-name">
+            <a href="3D Room Scan.html">3D Room Scan</a></div>
         </div>
       </div>
       <div class="feature">
@@ -445,7 +510,6 @@
         <div class="row gy-4 align-items-center justify-content-between">
 
           <div class="col-lg-5">
-            <img src="assets/img/clients.jpg" alt="" class="img-fluid">
           </div>
 
           <div class="col-lg-6">
@@ -830,7 +894,7 @@
 
     </section><!-- /Contact Section -->
     
-    <script>
+    <!--<script>
       const canvas = document.getElementById('floatingStone');
 
       const scene = new THREE.Scene();
@@ -981,6 +1045,131 @@
 
   showFeaturePage(0);
   </script>
+
+  <script type="module">
+  import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.module.js';
+  import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.158.0/examples/jsm/controls/OrbitControls.js';
+  import { Brush, Evaluator, SUBTRACTION } from 'https://cdn.jsdelivr.net/npm/three-bvh-csg@0.8.0/dist/three-bvh-csg.module.js';
+
+  const container = document.getElementById('three-container');
+
+  // Only initialize the WebGL scene if the container exists on the page
+  if (container) {
+    // Scene setup
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color(0x050509);
+
+    const camera = new THREE.PerspectiveCamera(60, container.clientWidth / container.clientHeight, 0.1, 100);
+    camera.position.set(2, 1.5, 4);
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setSize(container.clientWidth, container.clientHeight);
+    renderer.setPixelRatio(window.devicePixelRatio);
+    container.appendChild(renderer.domElement);
+
+    // Controls
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.enablePan = false;
+    controls.enableZoom = false;
+    controls.autoRotate = true;
+    controls.autoRotateSpeed = 0.8;
+
+    // Lighting
+    const hemiLight = new THREE.HemisphereLight(0xffffff, 0x111122, 0.8);
+    scene.add(hemiLight);
+
+    const dirLight = new THREE.DirectionalLight(0xffffff, 1);
+    dirLight.position.set(5, 10, 7.5);
+    scene.add(dirLight);
+
+    // Create CSG objects
+    const brush1 = new Brush(new THREE.SphereGeometry(1.1, 48, 48));
+    brush1.updateMatrixWorld();
+
+    const brush2 = new Brush(new THREE.BoxGeometry(1.5, 1.5, 1.5));
+    brush2.position.y = 0.4;
+    brush2.updateMatrixWorld();
+
+    const evaluator = new Evaluator();
+    const result = evaluator.evaluate(brush1, brush2, SUBTRACTION);
+
+    const material = new THREE.MeshStandardMaterial({
+      color: 0x8b5cf6,
+      metalness: 0.6,
+      roughness: 0.25
+    });
+
+    const mesh = new THREE.Mesh(result.geometry, material);
+    mesh.castShadow = true;
+    mesh.receiveShadow = true;
+    scene.add(mesh);
+
+    // Animate
+    function animate() {
+      requestAnimationFrame(animate);
+      mesh.rotation.y += 0.004;
+      controls.update();
+      renderer.render(scene, camera);
+    }
+
+    animate();
+
+    // Handle resize
+    window.addEventListener('resize', () => {
+      const bounds = container.getBoundingClientRect();
+      camera.aspect = bounds.width / bounds.height;
+      camera.updateProjectionMatrix();
+      renderer.setSize(bounds.width, bounds.height);
+    });
+  }
+  </script>
+
+  <script>
+    // Layered parallax glows that track the cursor for extra depth
+    (function () {
+      const hero = document.querySelector('.hero');
+      const layers = document.querySelectorAll('.parallax-layer');
+
+      if (!hero || !layers.length) return;
+
+      const lerp = (start, end, factor) => start + (end - start) * factor;
+      let targetX = 0;
+      let targetY = 0;
+      let currentX = 0;
+      let currentY = 0;
+
+      hero.addEventListener('pointermove', (event) => {
+        const rect = hero.getBoundingClientRect();
+        targetX = (event.clientX - rect.left) / rect.width - 0.5;
+        targetY = (event.clientY - rect.top) / rect.height - 0.5;
+      });
+
+      hero.addEventListener('pointerleave', () => {
+        targetX = 0;
+        targetY = 0;
+      });
+
+      function updateParallax() {
+        currentX = lerp(currentX, targetX, 0.08);
+        currentY = lerp(currentY, targetY, 0.08);
+
+        layers.forEach((layer) => {
+          const depth = parseFloat(layer.dataset.depth || '0.1');
+          const translateX = currentX * depth * 300;
+          const translateY = currentY * depth * 260;
+          const rotate = currentX * depth * 15;
+
+          layer.style.transform = `translate3d(${translateX}px, ${translateY}px, 0) rotate(${rotate}deg) scale(1.1)`;
+        });
+
+        requestAnimationFrame(updateParallax);
+      }
+
+      updateParallax();
+    })();
+  </script>
+
 
 
   <!--<script>
