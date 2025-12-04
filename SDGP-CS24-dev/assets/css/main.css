@@ -1753,6 +1753,12 @@ section,
   font-size: 14px;
 }
 
+.tilt-img {
+  border-radius: 20px;
+  overflow: hidden;
+  background: #111;
+}
+
 /*--------------------------------------------------------------
 # Testimonials Section
 --------------------------------------------------------------*/
